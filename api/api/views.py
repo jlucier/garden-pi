@@ -10,10 +10,7 @@ bp = Blueprint('/', __name__)
 @bp.route('/current')
 def get_current_readings():
     return jsonify({
-        "data": [
-            SensorReading.query.order_by(SensorReading.timestamp.desc()).filter_by(type=SensorType.AIR_TEMP).first(),
-            SensorReading.query.order_by(SensorReading.timestamp.desc()).filter_by(type=SensorType.AIR_HUMIDITY).first(),
-        ],
+        "data": SensorReading.query.order_by(SensorReading.timestamp.desc()).distinct(SensorReading.type).limit(2),
     })
 
 @bp.route('/all')

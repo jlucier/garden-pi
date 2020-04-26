@@ -49,13 +49,11 @@ function App() {
         timestamp: r1.timestamp,
       }));
 
-      console.log(data);
       updateHistory(data);
     }
     fetchData();
   }, []);
 
-  console.log(currentReading);
   return (
     <div className="App">
       <h1>Live</h1>
