@@ -35,7 +35,7 @@ function App() {
 
       let data = _.groupBy(resp.data.data, 'type');
       _.forEach(data, (series, type) => {
-        data[type] = _.groupBy(series, datum => moment(datum.timestamp).startOf('hour'));
+        data[type] = _.groupBy(series, datum => moment(datum.timestamp).startOf('minute'));
         data[type] = _.map(data[type], (miniSeries, mom) => ({
           type,
           value: _.meanBy(miniSeries, 'value'),
@@ -81,7 +81,7 @@ function App() {
           <Legend />
           <Tooltip contentStyle={{backgroundColor: '#282c34'}} />
           <CartesianGrid stroke="#f5f5f5" />
-          <Line type="monotone" dataKey={d => d.AIR_TEMP * 9/5 + 32} stroke="#8884d8" yAxisId={0} unit='F'/>
+          <Line type="monotone" name="AIR_TEMP" dataKey={d => d.AIR_TEMP * 9/5 + 32} stroke="#8884d8" yAxisId={0} unit='F'/>
           <Line type="monotone" dataKey="AIR_HUMIDITY" stroke="#82ca9d" yAxisId='right' unit='%'/>
         </LineChart>
       }

@@ -1,6 +1,7 @@
 from datetime import datetime
+import os
 
-from flask import Blueprint, current_app, jsonify
+from flask import Blueprint, current_app, jsonify, render_template
 
 from .models import *
 
@@ -18,3 +19,11 @@ def all_readings():
     return jsonify({
         "data": SensorReading.query.order_by(SensorReading.timestamp.asc())
     })
+
+
+# Serve React App
+
+
+@bp.route('/')
+def serve():
+    return render_template('index.html')

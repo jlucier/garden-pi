@@ -3,7 +3,7 @@ from flask import Flask
 from . import views, models, scheduler
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder='../../frontend/build/static', template_folder='../../frontend/build')
     app.config.from_object('config')
 
     models.db.init_app(app)

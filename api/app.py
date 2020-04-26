@@ -13,4 +13,4 @@ if not os.path.exists("app.db"):
     with app.app_context():
         db.create_all()
 
-app.run(debug=app.config['DEBUG'])
+app.run('0.0.0.0', debug=app.config['DEBUG'])
