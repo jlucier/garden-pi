@@ -75,7 +75,7 @@ function App() {
           data={historicalData}
           margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
         >
-          <XAxis dataKey="timestamp" interval={0} angle={30} />
+          <XAxis dataKey="timestamp" interval={15} angle={30} />
           <YAxis />
           <YAxis yAxisId="right" orientation="right" />
           <Legend />

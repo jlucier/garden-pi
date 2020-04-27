@@ -26,7 +26,7 @@ class FlaskScheduler(BackgroundScheduler):
             self.init_app(app)
 
         self.add_job(
-            AirMonitor(), trigger="cron", minute="*/5", max_instances=1, coalesce=True, misfire_grace_time=30
+            AirMonitor(), trigger="cron", minute="*", max_instances=1, coalesce=True, misfire_grace_time=30
         )
 
     def init_app(self, app):

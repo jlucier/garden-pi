@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Garden Pi",
+  "name": "Garden Pi Hub",
   "icons": [
     {
       "src": "favicon.ico",
